@@ -1,0 +1,189 @@
+{
+  "detalle_actualizado": [
+    {
+      "fecha": "2025-01-05",
+      "mes": "2025-01",
+      "region": "Francisco Morazán",
+      "categoria": "Electrónica",
+      "producto": "Smartphone X",
+      "ventas": 1200,
+      "precio_unitario_hnl": 13499,
+      "ingresos_hnl": 16198800,
+      "precio_fuente": "HONOR 400 (Diunsa) 13,499 HNL"
+    },
+    {
+      "fecha": "2025-01-08",
+      "mes": "2025-01",
+      "region": "Cortés",
+      "categoria": "Hogar",
+      "producto": "Lavadora Y",
+      "ventas": 900,
+      "precio_unitario_hnl": 12997,
+      "ingresos_hnl": 11697300,
+      "precio_fuente": "Lavadora Samsung 20 kg WA20A3353GWA 12,997 HNL"
+    },
+    {
+      "fecha": "2025-02-02",
+      "mes": "2025-02",
+      "region": "Cortés",
+      "categoria": "Electrónica",
+      "producto": "Laptop Pro",
+      "ventas": 1800,
+      "precio_unitario_hnl": 24990,
+      "ingresos_hnl": 44982000,
+      "precio_fuente": "Laptop gama media‑alta 24,990 HNL"
+    },
+    {
+      "fecha": "2025-02-05",
+      "mes": "2025-02",
+      "region": "Francisco Morazán",
+      "categoria": "Hogar",
+      "producto": "Refrigeradora K",
+      "ventas": 1300,
+      "precio_unitario_hnl": 15997,
+      "ingresos_hnl": 20796100,
+      "precio_fuente": "Whirlpool 14 pies 15,997 HNL"
+    },
+    {
+      "fecha": "2025-02-12",
+      "mes": "2025-02",
+      "region": "Comayagua",
+      "categoria": "Electrónica",
+      "producto": "Tablet S",
+      "ventas": 700,
+      "precio_unitario_hnl": 8495,
+      "ingresos_hnl": 5946500,
+      "precio_fuente": "Samsung Tab S10 Lite 8,495 HNL"
+    },
+    {
+      "fecha": "2025-03-03",
+      "mes": "2025-03",
+      "region": "Santa Bárbara",
+      "categoria": "Electrónica",
+      "producto": "TV 55\"",
+      "ventas": 2100,
+      "precio_unitario_hnl": 13990,
+      "ingresos_hnl": 29379000,
+      "precio_fuente": "LG 55QNED70 13,990 HNL"
+    },
+    {
+      "fecha": "2025-03-15",
+      "mes": "2025-03",
+      "region": "La Paz",
+      "categoria": "Electrónica",
+      "producto": "Monitor Gamer",
+      "ventas": 950,
+      "precio_unitario_hnl": 8795,
+      "ingresos_hnl": 8355250,
+      "precio_fuente": "Samsung Odyssey G4 27\" 8,795 HNL"
+    },
+    {
+      "fecha": "2025-03-20",
+      "mes": "2025-03",
+      "region": "El Paraíso",
+      "categoria": "Hogar",
+      "producto": "Microondas A",
+      "ventas": 400,
+      "precio_unitario_hnl": 3490,
+      "ingresos_hnl": 1396000,
+      "precio_fuente": "Avanti 0.9–1.1 ft 3,490–3,990 HNL"
+    },
+    {
+      "fecha": "2025-04-06",
+      "mes": "2025-04",
+      "region": "Valle",
+      "categoria": "Electrónica",
+      "producto": "Audífonos X2",
+      "ventas": 300,
+      "precio_unitario_hnl": 1599,
+      "ingresos_hnl": 479700,
+      "precio_fuente": "Samsung Buds Core 1,599 HNL"
+    },
+    {
+      "fecha": "2025-04-11",
+      "mes": "2025-04",
+      "region": "Choluteca",
+      "categoria": "Hogar",
+      "producto": "Ventilador Turbo",
+      "ventas": 420,
+      "precio_unitario_hnl": 1300,
+      "ingresos_hnl": 546000,
+      "precio_fuente": "Rangos Walmart HN 1,195–1,495 HNL"
+    },
+    {
+      "fecha": "2025-04-15",
+      "mes": "2025-04",
+      "region": "Colón",
+      "categoria": "Electrónica",
+      "producto": "Cámara 4K",
+      "ventas": 1100,
+      "precio_unitario_hnl": 12990,
+      "ingresos_hnl": 14289000,
+      "precio_fuente": "Swann 4K 12,990 HNL"
+    },
+    {
+      "fecha": "2025-05-02",
+      "mes": "2025-05",
+      "region": "El Paraíso",
+      "categoria": "Electrónica",
+      "producto": "Teclado Mecánico",
+      "ventas": 280,
+      "precio_unitario_hnl": 1063,
+      "ingresos_hnl": 297640,
+      "precio_fuente": "Marvo KG956W 1,063 HNL"
+    },
+    {
+      "fecha": "2025-05-14",
+      "mes": "2025-05",
+      "region": "Ocotepeque",
+      "categoria": "Electrónica",
+      "producto": "Mouse Gamer",
+      "ventas": 120,
+      "precio_unitario_hnl": 750,
+      "ingresos_hnl": 90000,
+      "precio_fuente": "Razer DeathAdder V2 ≈ 750 HNL"
+    },
+    {
+      "fecha": "2025-05-21",
+      "mes": "2025-05",
+      "region": "Cortés",
+      "categoria": "Hogar",
+      "producto": "Cocina Eléctrica",
+      "ventas": 700,
+      "precio_unitario_hnl": 12500,
+      "ingresos_hnl": 8750000,
+      "precio_fuente": "Drija 4Q 12,500 HNL"
+    },
+    {
+      "fecha": "2025-06-07",
+      "mes": "2025-06",
+      "region": "Yoro",
+      "categoria": "Electrónica",
+      "producto": "Parlante Bluetooth",
+      "ventas": 350,
+      "precio_unitario_hnl": 1800,
+      "ingresos_hnl": 630000,
+      "precio_fuente": "Portátil 20W 1,800 HNL"
+    },
+    {
+      "fecha": "2025-06-20",
+      "mes": "2025-06",
+      "region": "Atlántida",
+      "categoria": "Hogar",
+      "producto": "Licuadora Pro",
+      "ventas": 620,
+      "precio_unitario_hnl": 1799,
+      "ingresos_hnl": 1117380,
+      "precio_fuente": "B+D 1.4–1.5L 1,799–1,999 HNL"
+    },
+
+    { "fecha": "2025-01-12", "categoria": "Ropa", "producto": "Zapatillas Z", "ventas": 600, "precio_unitario_hnl": null, "ingresos_hnl": null },
+    { "fecha": "2025-01-15", "categoria": "Alimentos", "producto": "Café Premium", "ventas": 400, "precio_unitario_hnl": null, "ingresos_hnl": null },
+    { "fecha": "2025-02-18", "categoria": "Alimentos", "producto": "Azúcar Premium", "ventas": 350, "precio_unitario_hnl": null, "ingresos_hnl": null },
+    { "fecha": "2025-03-10", "categoria": "Ropa", "producto": "Camisa Casual", "ventas": 320, "precio_unitario_hnl": null, "ingresos_hnl": null },
+    { "fecha": "2025-04-01", "categoria": "Alimentos", "producto": "Bebida Energética", "ventas": 500, "precio_unitario_hnl": null, "ingresos_hnl": null },
+    { "fecha": "2025-05-07", "categoria": "Ropa", "producto": "Jeans Fit", "ventas": 150, "precio_unitario_hnl": null, "ingresos_hnl": null },
+    { "fecha": "2025-06-03", "categoria": "Alimentos", "producto": "Aceite Premium", "ventas": 480, "precio_unitario_hnl": null, "ingresos_hnl": null },
+    { "fecha": "2025-06-15", "categoria": "Ropa", "producto": "Short Deportivo", "ventas": 210, "precio_unitario_hnl": null, "ingresos_hnl": null }
+  ]
+}

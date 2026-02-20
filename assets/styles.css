@@ -1,0 +1,207 @@
+/* ==== Backdrop oscuro */
+.tour-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, .65); /* slate-900 con opacidad */
+  z-index: 9998;
+}
+
+/* ==== Resaltado del elemento */
+.tour-highlight {
+  position: absolute;
+  border: 2px solid #22c55e; /* verde */
+  border-radius: 10px;
+  box-shadow: 0 0 0 6px rgba(34, 197, 94, .25);
+  pointer-events: none; /* no bloquear clics */
+  z-index: 9999;
+}
+
+/* ==== Tooltip */
+.tour-tooltip {
+  position: absolute;
+  max-width: 320px;
+  background: #0b1220;         /* fondo oscuro */
+  color: #e5e7eb;              /* texto gris claro */
+  border: 1px solid rgba(148,163,184,.25);
+  border-radius: 10px;
+  padding: 14px 14px 10px;
+  z-index: 10000;
+  font: 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+
+/* Flecha del tooltip (abajo) */
+.tour-tooltip::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  bottom: -10px;
+  border-width: 10px 10px 0 10px;
+  border-style: solid;
+  border-color: #0b1220 transparent transparent transparent;
+}
+
+/* Controles del tooltip */
+.tour-tooltip .tour-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.tour-btn {
+  background: #1f2937;
+  color: #e5e7eb;
+  border: 1px solid rgba(148,163,184,.25);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.tour-btn.primary {
+  background: #22c55e;
+  border-color: #22c55e;
+  color: #0b1220;
+}
+.tour-btn:disabled {
+  opacity: .5;
+  cursor: default;
+}
+:root{
+  --radius: 18px;
+}
+
+/* ====== BODY ====== */
+body{
+  margin:0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at 20% 20%, #1e293b 0%, #0f172a 40%, #020617 100%);
+  color:#d8fd02;
+}
+
+/* ====== HEADER ====== */
+header{
+  padding: 40px 40px 10px 40px;
+}
+
+header h1{
+  font-size: 2rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+header p{
+  color:#94a3b8;
+  margin:4px 0;
+}
+
+/* ====== BOTONES ====== */
+.actions{
+  margin:15px 0;
+}
+
+.actions button{
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .25s ease;
+  margin-right: 10px;
+}
+
+.actions button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(34,197,94,.4);
+}
+
+.actions button:nth-child(2){
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.actions button:nth-child(3){
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+/* ====== GRID 2x2 ====== */
+.dashboard{
+  max-width: 1500px;
+  margin: 40px auto;
+  padding: 0 30px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Todas las cards mismo tamaño */
+.map-card,
+.kpi{
+  height: 420px;
+}
+
+/* ====== CARDS ====== */
+.card{
+  background: linear-gradient(145deg, rgba(17,24,39,.95), rgba(15,23,42,.95));
+  border-radius: var(--radius);
+  padding: 24px;
+  border: 1px solid rgba(255,255,255,.05);
+  box-shadow: 0 20px 40px rgba(0,0,0,.4);
+  backdrop-filter: blur(6px);
+  transition: all .3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px rgba(0,0,0,.6);
+}
+
+.card h2{
+  margin: 0 0 18px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: .3px;
+}
+
+/* ====== MAPA ====== */
+#map{
+  flex:1;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0b1324;
+}
+
+/* ====== CHARTS ====== */
+.kpi canvas{
+  flex:1;
+  width:100% !important;
+  height:100% !important;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 1000px){
+  .dashboard{
+    grid-template-columns: 1fr;
+  }
+
+  .map-card,
+  .kpi{
+    height: 380px;
+  }
+}
+
+/* ====== PRINT ====== */
+@media print{
+  body{
+    background:#fff;
+    color:#000;
+  }
+
+  .card{
+    box-shadow:none;
+    border:1px solid #ccc;
+  }
+}

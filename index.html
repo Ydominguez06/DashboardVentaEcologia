@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard de Ventas DIUNSA</title>
+
+
+  <link rel="stylesheet" href="./assets/styles.css" />
+
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<body>
+  <header>
+    <h1>Dashboard de Ventas DIUNSA </h1>
+    <p>Periodo: <span id="periodo"></span> · Moneda: <span id="moneda"></span></p>
+
+    <div class="actions">
+  <button id="btnCsv">Exportar CSV</button>
+  <button id="btnPdf">Exportar PDF / Imprimir</button>
+  <button id="btnReset">Limpiar filtros</button>
+  <button id="btnTour">¿Cómo leer este dashboard?</button>
+</div>
+
+    <p class="filters">
+      <strong>Filtros activos:</strong> <span id="filtrosActivos">Sin filtros</span>
+    </p>
+  </header>
+
+ <main class="grid dashboard">
+  
+  <section class="card map-card">
+    <h2>Ventas por región</h2>
+    <div id="map"></div>
+  </section>
+
+  
+  <section class="card kpi">
+    <h2>Tendencia mensual</h2>
+    <canvas id="lineChart"></canvas>
+  </section>
+
+  <section class="card kpi">
+    <h2>Top productos</h2>
+    <canvas id="barChart"></canvas>
+  </section>
+
+  <section class="card kpi">
+    <h2>Participación por categoría</h2>
+    <canvas id="pieChart"></canvas>
+  </section>
+</main>
+  
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Módulo principal -->
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
