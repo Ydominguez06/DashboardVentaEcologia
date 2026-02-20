@@ -1,4 +1,4 @@
-import { initCharts, updateCharts, onChartEvents } from './chart.js';
+import { initCharts, updateCharts, onChartEvents, highlightBarByCategory } from './chart.js';
 import { initMap, updateMap } from './map.js';
 import { startTour } from './tour.js';
 
@@ -106,35 +106,45 @@ function describeFilters(){
 }
 
 
-function aggregateForCharts(rows){
-  
+function aggregateForCharts(rows, rowsForTopProducts = null){
   if (!Array.isArray(rows)) rows = [];
 
-  
+  // Datos usados para cálculos generales (mes, categorias, regiones)
   const data = withIngresos(rows);
 
-  
-  const baseMonths = getAllMonthsFromRAW();
+  // Si no se pasa una colección separada para top productos,
+  // usamos la misma colección; en refresh podremos pasar una
+  // que ignore el filtro de categoría.
+  if (!rowsForTopProducts) rowsForTopProducts = rows;
+  const dataForTop = withIngresos(rowsForTopProducts);
 
   
-  const sumMes = new Map(
-    groupSumBy(data, 'mes', 'ingresos_hnl').map(x => [String(x.key), x.total])
-  );
-  const porMes = baseMonths.map(mes => ({
-    mes,
-    ventas: sumMes.get(mes) ?? 0         
-  }));
 
-  
+    // Mostrar todos los meses del periodo, colocando 0 en los meses sin ventas
+    const baseMonths = getAllMonthsFromRAW();
+    const sumMes = new Map(
+      groupSumBy(data, 'mes', 'ventas').map(x => [String(x.key), x.total])
+    );
+    const porMes = baseMonths.map(mes => ({
+      mes,
+      ventas: sumMes.get(mes) ?? 0
+    }));
+
   const porCat = groupSumBy(data, 'categoria', 'ventas')
     .filter(x => x.key != null && x.key !== '')
     .map(x => ({ categoria: String(x.key), ventas: x.total }));
 
-  const porProd = groupSumBy(data, 'producto', 'ventas')
+  // Para top productos calculamos sobre dataForTop (puede ignorar filtro de categoría)
+  const prodSums = groupSumBy(dataForTop, 'producto', 'ventas')
     .filter(x => x.key != null && x.key !== '')
-    .sort((a,b) => b.total - a.total)
-    .slice(0, 5)
-    .map(x => ({ producto: String(x.key), ventas: x.total }));
+    .sort((a,b) => b.total - a.total);
+
+  const porProd = prodSums.slice(0, 5).map(x => {
+    const productoName = String(x.key);
+    // buscar categoría del primer registro que coincida en dataForTop
+    const found = dataForTop.find(r => r.producto === productoName && r.categoria);
+    return { producto: productoName, ventas: x.total, categoria: found ? String(found.categoria) : null };
+  });
 
   const porReg = groupSumBy(data, 'region', 'ventas')
     .filter(x => x.key != null && x.key !== '')
@@ -147,7 +157,21 @@ function aggregateForCharts(rows){
 function refresh(){
   const detalle = getDetalle(RAW);
   const filtered = applyFilters(detalle);
-  const aggs = aggregateForCharts(filtered);
+  // Para calcular top productos queremos respetar filtros de región/mes/producto
+  // pero IGNORAR el filtro de categoría (así el bar muestra el top global dentro
+  // del contexto de los demás filtros y podemos solo resaltar por categoría).
+  const filteredExceptCategory = (Array.isArray(detalle)) ? detalle.filter(r =>
+    (state.region    ? regionKey(r.region)    === state.region    : true) &&
+    (state.producto  ? r.producto             === state.producto  : true) &&
+    (state.mes       ? r.mes                  === state.mes       : true)
+  ) : [];
+
+  // Si hay una categoría seleccionada, queremos que el bar muestre
+  // el top productos DENTRO de esa categoría. Si NO hay categoría,
+  // calculamos el top global (ignorando categoría) para que el bar
+  // presente los productos más vendidos en el contexto de otros filtros.
+  const rowsForTop = state.categoria ? filtered : filteredExceptCategory;
+  const aggs = aggregateForCharts(filtered, rowsForTop);
 
   document.getElementById('filtrosActivos').textContent = describeFilters();
 
@@ -160,6 +184,8 @@ function refresh(){
 
   
   updateMap(aggs.porReg, state.region);
+  // Asegurar que los colores del bar respeten la categoría actualmente seleccionada
+  try{ highlightBarByCategory(state.categoria); }catch(e){}
 }
 
 
@@ -278,6 +304,7 @@ async function exportPDF(){
     onClickPieCategoria: (categoria)=>{
       state.categoria = (state.categoria === categoria) ? null : categoria;
       refresh();
+      highlightBarByCategory(state.categoria);
     },
     onClickBarProducto: (producto)=>{
       state.producto = (state.producto === producto) ? null : producto;

@@ -176,14 +176,77 @@
       "ingresos_hnl": 1117380,
       "precio_fuente": "B+D 1.4–1.5L 1,799–1,999 HNL"
     },
-
-    { "fecha": "2025-01-12", "categoria": "Ropa", "producto": "Zapatillas Z", "ventas": 600, "precio_unitario_hnl": null, "ingresos_hnl": null },
-    { "fecha": "2025-01-15", "categoria": "Alimentos", "producto": "Café Premium", "ventas": 400, "precio_unitario_hnl": null, "ingresos_hnl": null },
-    { "fecha": "2025-02-18", "categoria": "Alimentos", "producto": "Azúcar Premium", "ventas": 350, "precio_unitario_hnl": null, "ingresos_hnl": null },
-    { "fecha": "2025-03-10", "categoria": "Ropa", "producto": "Camisa Casual", "ventas": 320, "precio_unitario_hnl": null, "ingresos_hnl": null },
-    { "fecha": "2025-04-01", "categoria": "Alimentos", "producto": "Bebida Energética", "ventas": 500, "precio_unitario_hnl": null, "ingresos_hnl": null },
-    { "fecha": "2025-05-07", "categoria": "Ropa", "producto": "Jeans Fit", "ventas": 150, "precio_unitario_hnl": null, "ingresos_hnl": null },
-    { "fecha": "2025-06-03", "categoria": "Alimentos", "producto": "Aceite Premium", "ventas": 480, "precio_unitario_hnl": null, "ingresos_hnl": null },
-    { "fecha": "2025-06-15", "categoria": "Ropa", "producto": "Short Deportivo", "ventas": 210, "precio_unitario_hnl": null, "ingresos_hnl": null }
+    {
+      "fecha": "2025-01-12",
+      "mes": "2025-01",
+      "categoria": "Ropa",
+      "producto": "Zapatillas Z",
+      "ventas": 600,
+      "precio_unitario_hnl": 1400,
+      "ingresos_hnl": 840000
+    },
+    {
+      "fecha": "2025-01-15",
+      "mes": "2025-01",
+      "categoria": "Alimentos",
+      "producto": "Café Premium",
+      "ventas": 400,
+      "precio_unitario_hnl": 120,
+      "ingresos_hnl": 48000
+    },
+    {
+      "fecha": "2025-02-18",
+      "mes": "2025-02",
+      "categoria": "Alimentos",
+      "producto": "Azúcar Premium",
+      "ventas": 350,
+      "precio_unitario_hnl": 150,
+      "ingresos_hnl": 52500
+    },
+    {
+      "fecha": "2025-03-10",
+      "mes": "2025-03",
+      "categoria": "Ropa",
+      "producto": "Camisa Casual",
+      "ventas": 320,
+      "precio_unitario_hnl": 780,
+      "ingresos_hnl": 249600
+    },
+    {
+      "fecha": "2025-04-01",
+      "mes": "2025-04",
+      "categoria": "Alimentos",
+      "producto": "Bebida Energética",
+      "ventas": 500,
+      "precio_unitario_hnl": 60,
+      "ingresos_hnl": 30000
+    },
+    {
+      "fecha": "2025-05-07",
+      "mes": "2025-05",
+      "categoria": "Ropa",
+      "producto": "Jeans Fit",
+      "ventas": 150,
+      "precio_unitario_hnl": 500,
+      "ingresos_hnl": 75000
+    },
+    {
+      "fecha": "2025-06-03",
+      "mes": "2025-06",
+      "categoria": "Alimentos",
+      "producto": "Aceite Premium",
+      "ventas": 480,
+      "precio_unitario_hnl": 690,
+      "ingresos_hnl": 331200
+    },
+    {
+      "fecha": "2025-06-15",
+      "mes": "2025-06",
+      "categoria": "Ropa",
+      "producto": "Short Deportivo",
+      "ventas": 210,
+      "precio_unitario_hnl": 410,
+      "ingresos_hnl": 86100
+    }
   ]
 }
