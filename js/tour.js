@@ -1,11 +1,11 @@
-// tour.js (puede ir dentro de main.js si prefieres)
+
 function makeRectFor(el) {
   const r = el.getBoundingClientRect();
   return { top: r.top + window.scrollY, left: r.left + window.scrollX, width: r.width, height: r.height };
 }
 
 function placeAround(targetRect, tooltipEl, preferred = 'bottom-left', gap = 12) {
-  // Calcula posición del tooltip con una estrategia simple: debajo-izquierda del elemento
+  
   const { innerWidth, innerHeight, scrollX, scrollY } = window;
   tooltipEl.style.visibility = 'hidden';
   tooltipEl.style.left = '-9999px'; // medir primero
@@ -18,17 +18,17 @@ function placeAround(targetRect, tooltipEl, preferred = 'bottom-left', gap = 12)
   let left = targetRect.left;
   let top  = targetRect.top + targetRect.height + gap;
 
-  // Ajustes por overflow en la derecha
+  
   if (left + tw > scrollX + innerWidth - 12) {
     left = Math.max(12, scrollX + innerWidth - tw - 12);
   }
-  // Ajustes por overflow abajo
+ 
   if (top + th > scrollY + innerHeight - 12) {
-    // prueba arriba
+    
     const up = targetRect.top - th - gap;
     if (up >= scrollY + 12) {
       top = up;
-      // mover “flecha” al borde superior
+      
       tooltipEl.style.setProperty('--arrow-direction', 'up');
       tooltipEl.classList.add('up-arrow');
     }
@@ -46,7 +46,7 @@ function createEl(tag, cls) {
 }
 
 export function startTour() {
-  // Pasos del tour (cada paso apunta a un selector y muestra un texto)
+  
   const steps = [
     {
       target: '#map',
@@ -85,7 +85,7 @@ export function startTour() {
     }
   ];
 
-  // Validar que existan los targets
+  
   const validSteps = steps.filter(s => document.querySelector(s.target));
   if (!validSteps.length) {
     alert('No hay elementos disponibles para el tour.');
@@ -106,14 +106,13 @@ export function startTour() {
     if (!el) return;
     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-    // Ubicar highlight
+    
     const rect = makeRectFor(el);
     highlight.style.top = rect.top - 8 + 'px';
     highlight.style.left = rect.left - 8 + 'px';
     highlight.style.width = rect.width + 16 + 'px';
     highlight.style.height = rect.height + 16 + 'px';
 
-    // Armar tooltip
     tooltip.innerHTML = `
       <div style="font-weight:600; margin-bottom:6px;">${s.title}</div>
       <div>${s.content}</div>
@@ -124,10 +123,10 @@ export function startTour() {
       </div>
     `;
 
-    // Posicionar tooltip
+    
     placeAround(rect, tooltip, 'bottom-left', 14);
 
-    // Reasignar handlers
+
     tooltip.querySelector('#tourPrev').onclick = () => setStep(Math.max(0, idx - 1));
     tooltip.querySelector('#tourNext').onclick = () => {
       if (idx >= validSteps.length - 1) endTour();
@@ -143,7 +142,7 @@ export function startTour() {
   }
 
   function onResize() {
-    // Recalcular posición al cambiar viewport/scroll
+
     setStep(idx);
   }
 

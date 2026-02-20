@@ -1,25 +1,24 @@
-// js/map.js
+
 let map, geoLayer, regionToFeature = new Map();
 let currentSelection = null;
 
-// Paleta para choropleth (ventas -> relleno)
+
 function colorFor(value, max){
   const t = max ? (value / max) : 0; // 0..1
-  // verde suave -> verde intenso
+  
   const alpha = 0.20 + 0.50 * t;      // 0.2..0.7
   return `rgba(34,197,94,${alpha})`;  // #22c55e con alpha
 }
 
 export function initMap(geojson, { onRegionSelected }){
-  // Creamos el mapa sin capa base (solo el contorno)
+  
   map = L.map('map', {
     zoomControl: true,
     attributionControl: false, // sin créditos (no hay tiles)
     scrollWheelZoom: true
   });
 
-  // Función para obtener el nombre de la región desde las properties del GeoJSON.
-  // Ajusta para coincidir con tu archivo: NAME_1, NOMBRE, name, etc.
+  
   function getName(props){
     return props.NAME_1 || props.NOMBRE || props.name || props.Name || props.admin || props.DEPARTAMEN || 'SinNombre';
   }
@@ -38,7 +37,7 @@ export function initMap(geojson, { onRegionSelected }){
         if(currentSelection !== rName) e.target.setStyle({ weight:1, fillOpacity:0.30 });
       },
       click: ()=>{
-        // Alternar selección
+       
         currentSelection = (currentSelection === rName) ? null : rName;
         onRegionSelected && onRegionSelected(currentSelection);
       }
@@ -52,24 +51,23 @@ export function initMap(geojson, { onRegionSelected }){
     onEachFeature
   }).addTo(map);
 
-  // Ajustar vista al contorno de Honduras
   const bounds = geoLayer.getBounds();
   map.fitBounds(bounds);
 
-  // Restringir navegación para no salirte del país (con un pequeño padding)
+ 
   map.setMaxBounds(bounds.pad(0.25));
-  // Opcional: limitar el zoom mínimo para que no se vea demasiado “lejos”
+
   map.setMinZoom(map.getZoom());
 }
 
 export function updateMap(porRegion, selectedRegion){
   currentSelection = selectedRegion || null;
 
-  // Índice de ventas por región
+ 
   const sales = new Map(porRegion.map(x => [x.region, x.ventas]));
   const max = Math.max(1, ...porRegion.map(x => x.ventas));
 
-  // Reaplicar estilo por región (choropleth + selección)
+
   regionToFeature.forEach((layer, rName) => {
     const v = sales.get(rName) || 0;
     const isSel = (currentSelection === rName);
